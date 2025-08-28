@@ -7,12 +7,16 @@ import sys
 from typing import Dict, List, Tuple
 
 class LLMReasoner:
-    """Uses local Ollama API with smollm:135m model for defeasible reasoning"""
+    """Uses local Ollama API with <llm_model> model for defeasible reasoning"""
     
     def __init__(self):
         self.api_endpoint = "http://localhost:11434/api/generate"
-        self.model = "smollm:135m"  # Make sure to run 'ollama pull smollm:135m' first
-        
+        self.model = "phi3"  # Make sure to run 'ollama pull <llm_model>' first
+        # first_shot classifier = 0.5
+        # smollm:135m=0.1
+        # smoll:latest=0.2 (1.7b)
+        # phi=0.1
+        # phi=0.5 (175b)
     def format_prompt(self, facts: str, rules: str, preferences: str, question: str) -> str:
         """Format the input as a natural language prompt for the LLM"""
         return f"""Given these facts:
