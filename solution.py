@@ -4,7 +4,6 @@ import csv
 import json
 import urllib.request
 import sys
-from typing import Dict, List, Tuple
 
 class LLMReasoner:
     """Uses local Ollama API with <llm_model> model for defeasible reasoning"""
